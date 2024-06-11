@@ -14,7 +14,41 @@ public class BasicMaths {
 //        checkPalindromeUsingString(12);
 //        checkArmstrongNumber(1634); //371,
 //        printAllDivisors(16);
-        checkPrimeNumber(36);
+//        checkPrimeNumber(36);
+        checkForGCDOrHCF(52, 10);
+    }
+
+    private static void checkForGCDOrHCF(int n, int m) {
+        long startTime = new Date().getTime();
+
+
+        //Brute force
+        int min = Math.min(n, m);
+        for (int i = min; i >= 1; i--) {
+            if (n % i == 0 && m % i == 0) {
+                System.out.println("GCD is " + i);
+
+                break;
+            }
+        }
+        long endTime = new Date().getTime();
+
+        //Using equilateral algorithm
+//        while (n > 0 && m > 0) {
+//            if (n > m) {
+//                n = n % m;
+//            } else {
+//                m = m % n;
+//            }
+//        }
+//
+//        long endTime = new Date().getTime();
+//        if (n == 0) {
+//            System.out.println("HCF is " + m);
+//        } else {
+//            System.out.println("HCF is " + n);
+//        }
+        System.out.println("Time taken in millis " + (endTime - startTime));
     }
 
     private static boolean checkPrimeNumber(int n) {
@@ -32,7 +66,7 @@ public class BasicMaths {
             if (count > 2) {
                 long endTime = new Date().getTime();
                 System.out.println("Number is not prime inside");
-                System.out.println("Time taken in millis "+ (endTime-startTime));
+                System.out.println("Time taken in millis " + (endTime - startTime));
                 return false;
             }
         }
@@ -40,11 +74,11 @@ public class BasicMaths {
         long endTime = new Date().getTime();
         if (count == 2) {
             System.out.println("Number is prime");
-            System.out.println("Time taken in millis "+ (endTime-startTime));
+            System.out.println("Time taken in millis " + (endTime - startTime));
             return true;
-        }else{
+        } else {
             System.out.println("Number is not prime");
-            System.out.println("Time taken in millis "+ (endTime-startTime));
+            System.out.println("Time taken in millis " + (endTime - startTime));
             return false;
         }
     }
